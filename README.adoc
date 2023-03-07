@@ -1,0 +1,132 @@
+:sectnums:
+:nofooter:
+:toc: left
+:icons: font
+:data-uri:
+:source-highlighter: highlightjs
+:stem: latexmath
+
+
+= Group Assignment - Dictionary
+
+You are going to implement a Vocabulary-Trainer. You can choose between 4 languages,
+where one is your source language and the other is the translation language.
+
+[plantuml]
+----
+@startuml
+hide empty fields
+hide empty methods
+
+title Dictionary
+
+class Dictionary
+{
+ -const int InitialBuckets
+ -const int MaxDepth
+ -List<KeyValue>[] _buckets
+ -int _bucketCnt
+ +int Count [private set]
+ +TValue? this[TKey key]
+ +Dictionary()
+ +Dictionary(int)
+ +List<Tkey> GetKeys()
+ +List<TValue> GetValues()
+ -int GetBucketIndex(TKey)
+ +void Add(TKey, TValue)
+ +void Grow()
+ +bool Remove(TKey)
+ +bool TryGetValue(TKey, out TValue?)
+ +bool ContainsKey(TKey)
+}
+
+class KeyValue
+{
+ +TKey Key
+ +TValue Value
+ +KeyValue(TKey, TValue)
+}
+
+class VocabularyTrainer
+{
+ -string _lang1
+ -string _lang2
+ -DictionaryManager _dictionaryManager
+ +VocabularyTrainer(string, string, DictionaryManager)
+ +void Run()
+}
+
+class DictionaryManager
+{
+ -const char Seperator
+ -const char DataSeperator
+ -MyDictionary<string, MyDictionary<string, WordData>> _allWords [readonly]
+ -List<MyDictionary<string, WordData>> _allTranslations [readonly]
+ -List<string> _languages [readonly]
+ +DictionaryManager()
+ +DictionaryManager(string)
+ +bool SaveDictionary(string)
+ +bool ChangeInformation(string, language, int, bool)
+ -void ChangeTranslation(MyDictionary<string, WordData>, string, WordData?, string, Usage, bool)
+ +bool TryAddLanguage(string)
+ +string ToString() [override]
+ +List<string[]>? GetDictionary(string, string)
+ +bool Contains(string)
+ +string? GetWordInformation(string)
+ -void GenerateAllWordsFromTranslations()
+ -bool InitializeWordsFromFile(string)
+ -void InitializeLanguages(string)
+ -bool TryGetWordData(string, out WordData?)
+ -string CapitaliseString(string)
+}
+
+class WordData
+{
+ +string Word [readonly]
+ +Usage Usage [readonly]
+}
+
+enum Usage
+{
+ often
+ sometimes
+ rarely
+ never
+}
+
+ WordData -r- Usage
+ DictionaryManager "1" -r- "n" WordData
+ VocabularyTrainer "1" -d- "1" DictionaryManager
+ Dictionary -r- KeyValue
+@enduml
+----
+
+NOTE: All words and inputs always need to be converted to the lower invariant before you work with them. This is for the unittest to work.
+
+== Vocabulary Trainer
+
+* Loads the Dictionary in the right language
+* Outputs a random word and checks the correctness of the translation and returns it to the user
+
+== Dictionary
+
+This is a simple implementation of a generic dictionary in C#.
+
+== Dictionary-Manager
+It is a manager for a dictionary that contains word translations between multiple languages. The class has several methods that allow the user to interact with the dictionary data structure.
+
+The class has two constructors, one of them takes a string as a parameter and initializes the class with the data from a CSV file. The other constructor initializes an empty dictionary.
+
+* The `GetDictionary` method returns a list of all word pairs in the languages specified, but only if both translations of a word exist.
+
+* The `Contains` method returns a boolean indicating whether the given word exists in the dictionary.
+
+* The `GetWordInformation` method returns a string with the translations of a word in every language stored in the dictionary.
+
+== SampleRun
+
+* Look at the provided UnitTests and XML-Docs and work through the TODO's.
+* Sample Run:
+
+
+video::SampleRun.mp4[width=640,start=60]
