@@ -1,6 +1,6 @@
 ﻿using Dictionary;
 
-public class main
+public class Program
 {
     public static void Main(string[] args)
     {
@@ -41,7 +41,7 @@ public class main
                 Console.WriteLine("---------------------------------");
                 input = Console.ReadLine();
                 Console.WriteLine("---------------------------------");
-            } while (!int.TryParse(input, out inputInt) && input.ToLowerInvariant() != "exit");
+            } while (!int.TryParse(input, out inputInt) && input!.ToLowerInvariant() != "exit");
 
             switch (inputInt)
             {
@@ -51,7 +51,7 @@ public class main
                     Console.Write("Enter the language you want to translate into[English, German, Spanish, Russian]: ");
                     var lang2 = Console.ReadLine();
 
-                    var VocabularyTrainer = new VocabularyTrainer(lang1, lang2, dictionaryManger);
+                    var VocabularyTrainer = new VocabularyTrainer(lang1!, lang2!, dictionaryManger);
                     VocabularyTrainer.Run();
 
                     Console.Clear();
@@ -60,7 +60,7 @@ public class main
                     Console.Write("Enter a word you want to know if it exists: ");
 
                     var word = Console.ReadLine();
-                    var output = dictionaryManger.Contains(word.ToLowerInvariant()) ? "The word exists" : "The word doesn't exist";
+                    var output = dictionaryManger.Contains(word!.ToLowerInvariant()) ? "The word exists" : "The word doesn't exist";
                     Console.WriteLine(output);
 
                     Console.ReadKey();
@@ -69,7 +69,7 @@ public class main
                 case 3:
                     Console.Write($"Enter a word you want to get info of: ");
                     var wordInfo = Console.ReadLine();
-                    var info = dictionaryManger.GetWordInformation(wordInfo.ToLowerInvariant());
+                    var info = dictionaryManger.GetWordInformation(wordInfo!.ToLowerInvariant());
 
                     if (info != null)
                     {
@@ -110,7 +110,7 @@ public class main
                     Console.Write("Enter the new information (if information is word and usage the format is WORD-USAGE) you want to change or add: ");
                     var information = Console.ReadLine();
 
-                    if (dictionaryManger.ChangeInformations(information, language, index - 1, changeUsage))
+                    if (dictionaryManger.ChangeInformations(information!, language!, index - 1, changeUsage))
                     {
                         dictionaryManger.SaveDictionary(Path);   
                     }

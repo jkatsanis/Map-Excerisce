@@ -1,0 +1,16 @@
+C:\Dev\g03\Map\starter\Dictionary\bin\Debug\net7.0\Data\words.csv
+C:\Dev\g03\Map\starter\Dictionary\bin\Debug\net7.0\Dictionary.exe
+C:\Dev\g03\Map\starter\Dictionary\bin\Debug\net7.0\Dictionary.deps.json
+C:\Dev\g03\Map\starter\Dictionary\bin\Debug\net7.0\Dictionary.runtimeconfig.json
+C:\Dev\g03\Map\starter\Dictionary\bin\Debug\net7.0\Dictionary.dll
+C:\Dev\g03\Map\starter\Dictionary\bin\Debug\net7.0\Dictionary.pdb
+C:\Dev\g03\Map\starter\Dictionary\obj\Debug\net7.0\Dictionary.csproj.AssemblyReference.cache
+C:\Dev\g03\Map\starter\Dictionary\obj\Debug\net7.0\Dictionary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Dev\g03\Map\starter\Dictionary\obj\Debug\net7.0\Dictionary.AssemblyInfoInputs.cache
+C:\Dev\g03\Map\starter\Dictionary\obj\Debug\net7.0\Dictionary.AssemblyInfo.cs
+C:\Dev\g03\Map\starter\Dictionary\obj\Debug\net7.0\Dictionary.csproj.CoreCompileInputs.cache
+C:\Dev\g03\Map\starter\Dictionary\obj\Debug\net7.0\Dictionary.dll
+C:\Dev\g03\Map\starter\Dictionary\obj\Debug\net7.0\refint\Dictionary.dll
+C:\Dev\g03\Map\starter\Dictionary\obj\Debug\net7.0\Dictionary.pdb
+C:\Dev\g03\Map\starter\Dictionary\obj\Debug\net7.0\Dictionary.genruntimeconfig.cache
+C:\Dev\g03\Map\starter\Dictionary\obj\Debug\net7.0\ref\Dictionary.dll
